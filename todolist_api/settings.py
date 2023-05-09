@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-3%1-e&+%naqvq0m%ebse5$z!s6box_04i_kw=-+oca+hv@zb3m
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['Herlina.pythonanywhere.com']
+ALLOWED_HOSTS = [
+    'Herlina.pythonanywhere.com',
+    'localhost'   
+    ]
 
 
 # Application definition
