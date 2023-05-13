@@ -1,7 +1,7 @@
 from telnetlib import STATUS
 from django.http import HttpResponse
 from django.shortcuts import render
-from rest_framework import viewsets
+from rest_framework import viewsets, permissions
 from django.core import serializers
 
 from .serializers import TodoSerializer
@@ -14,7 +14,8 @@ class TodoViewSet(viewsets.ModelViewSet):
     """
     queryset = Todo.objects.all().order_by('-created_at')
     serializer_class = TodoSerializer
-    permission_classes = []  # permissions.IsAuthenticated
+    # permissions.IsAuthenticated
+    permission_classes = [permissions.IsAuthenticated]
 
     def create(self, request):
         todo = Todo.objects.create(title=request.POST.get('title', ''),
